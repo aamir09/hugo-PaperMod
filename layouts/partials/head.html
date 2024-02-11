@@ -47,9 +47,8 @@
     {{- $ScrollStyle := (resources.Get "css/includes/scroll-bar.css") }}
     {{- $includes = (append $ScrollStyle $includes) }}
 {{- end }}
-
+{{ if .Params.math }}{{ partial "templates/katex.html" . }}{{ end }}
 {{- $includes_all := $includes | resources.Concat "assets/css/includes.css" }}
-
 {{- $theme_vars := (resources.Get "css/core/theme-vars.css") }}
 {{- $reset := (resources.Get "css/core/reset.css") }}
 {{- $media := (resources.Get "css/core/zmedia.css") }}
